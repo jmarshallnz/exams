@@ -264,6 +264,11 @@ make_question_moodle23 <- function(name = NULL, solution = TRUE, shuffle = FALSE
           type <- "essay"
       }
     }
+    if(type == "shortanswer") {
+      if (sum(points) == 0) {
+        type = "description"
+      }
+    }
 
     ## question name
     if(is.null(name)) name <- x$metainfo$name
